@@ -18,5 +18,22 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"
+  },
+  "prettier": {
+    "parser": "typescript",
+    "printWidth": 70,
+    "singleQuote": true,
+    "overrides": [
+        {
+            "files": [
+                "index.ts",
+                "config.ts",
+                "*config.js"
+            ],
+            "options": {
+                "printWidth": 200
+            }
+        }
+    ]
   }
 }
