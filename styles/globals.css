@@ -1,9 +1,17 @@
+:root {
+  --blue: #1e78ee;
+  --pink: rgb(235, 33, 171);
+  --pink-hover: rgb(245, 76, 138);
+  --white: #ffffff; 
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+  font-family: 'Unbounded', cursive;
 }
 
 a {
@@ -13,6 +21,8 @@ a {
 
 * {
   box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
