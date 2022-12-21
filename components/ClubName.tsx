@@ -31,8 +31,35 @@ export function ClubName({ clubNameInit }: any) {
       tabIndex={0}
     >
       <Head>
-        <title>Create Next App</title>
+        <title>nowadays, i spend my time elsewhere</title>
         <meta name="description" content={clubName} />
+
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          rel="mask-icon"
+          href="/safari-pinned-tab.svg"
+          color="#5bbad5"
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#14181c" />
+
         <style>
           {`@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');`}
         </style>
@@ -79,19 +106,38 @@ function selectRandom(arr: string[]) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export function generateName() {
-  const variant = selectRandom(
-    variants as unknown as string[]
-  ) as typeof variants[number];
-  const prefix = selectRandom(prefixes[variant]);
-  const suffix = selectRandom(suffixes[variant]);
+export function generateName(): string {
+  if (Math.random() < 0.1) {
+    return selectRandom(singles);
+  } else {
+    const variant = selectRandom(
+      variants as unknown as string[]
+    ) as typeof variants[number];
 
-  const name =
-    (prefix + suffix).charAt(0).toUpperCase() +
-    (prefix + suffix).slice(1);
+    const prefix = selectRandom(prefixes[variant]);
+    const suffix = selectRandom(suffixes[variant]);
 
-  return name;
+    const name = prefix + suffix;
+    // const name =
+    //   (prefix + suffix).charAt(0).toUpperCase() +
+    //   (prefix + suffix).slice(1);
+
+    return name;
+  }
 }
+
+const singles = [
+  'rash',
+  'itch',
+  'heaven',
+  'hell',
+  'silo',
+  'bunker',
+  'warehouse',
+  `willy wonka's chocolate factory`,
+  'input',
+  'output',
+];
 
 const variants = ['A', 'B'] as const;
 
@@ -100,6 +146,7 @@ const prefixes = {
     'base',
     'based',
     'else',
+    'every',
     'nowa',
     'octo',
     'other',
@@ -130,6 +177,7 @@ const prefixes = {
 
 const suffixes = {
   A: [
+    'body',
     'center',
     'days',
     'gon',
