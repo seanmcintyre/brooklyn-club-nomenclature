@@ -5,11 +5,24 @@ import { useRouter } from 'next/router';
 
 import styles from '../styles/Home.module.css';
 
-export function ClubName({ clubNameInit }: any) {
+export function ClubName() {
   const router = useRouter();
-  const [clubName, clubNameSet] = useState(clubNameInit);
+
+  useEffect(() => {
+    if (router.isReady) {
+      const nameFromUrl = router.query.clubName.replace(/-/g, ' ');
+
+      const clubNameInit =
+        typeof nameFromUrl === 'string' ? nameFromUrl : '';
+
+      clubNameSet(clubNameInit);
+    }
+  }, [router.isReady]);
+
+  const [clubName, clubNameSet] = useState('');
 
   function partyHop() {
+    console.log('party hop!');
     const name = generateName();
     const route = name.replace(/\s+/g, '-').toLowerCase();
 
@@ -22,7 +35,11 @@ export function ClubName({ clubNameInit }: any) {
     if (key === 'Enter' || key === ' ') partyHop();
   }
 
-  useEffect(() => partyHop(), []);
+  useEffect(() => {
+    if (router.isReady && !clubName) partyHop();
+  }, []);
+
+  if (!clubName) return <div />;
 
   return (
     <div
