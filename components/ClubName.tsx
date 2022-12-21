@@ -34,8 +34,7 @@ export function ClubName({ clubNameInit }: any) {
         <title>Create Next App</title>
         <meta name="description" content={clubName} />
         <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+          {`@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');`}
         </style>
       </Head>
 
@@ -56,13 +55,18 @@ export function ClubName({ clubNameInit }: any) {
           <a
             href="https://www.instagram.com/glimmernyc/"
             target="_blank"
+            rel="noreferrer"
           >
             glimmer!
           </a>
         </h1>
         <h1>
           subscribe 2{' '}
-          <a href="https://technoqueers.com" target="_blank">
+          <a
+            href="https://technoqueers.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             technoqueers!
           </a>
         </h1>
@@ -75,7 +79,7 @@ function selectRandom(arr: string[]) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function generateName() {
+export function generateName() {
   const variant = selectRandom(
     variants as unknown as string[]
   ) as typeof variants[number];
