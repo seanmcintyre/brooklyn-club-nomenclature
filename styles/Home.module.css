@@ -87,7 +87,11 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: calc(3vmin + 1.5rem);
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  display: block;
 }
 
 .title,

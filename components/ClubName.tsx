@@ -10,7 +10,7 @@ export function ClubName() {
 
   useEffect(() => {
     if (router.isReady) {
-      const nameFromUrl = router.query.clubName.replace(/-/g, ' ');
+      const nameFromUrl = router.query?.clubName?.replace(/-/g, ' ');
 
       const clubNameInit =
         typeof nameFromUrl === 'string' ? nameFromUrl : '';
