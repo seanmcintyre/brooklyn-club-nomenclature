@@ -16,6 +16,8 @@ export function ClubName() {
       const clubNameInit =
         typeof nameFromUrl === 'string' ? nameFromUrl : '';
 
+      if (clubNameInit.length < 1) partyHop();
+
       clubNameSet(clubNameInit);
     }
   }, [router.isReady]);
@@ -36,8 +38,9 @@ export function ClubName() {
   }
 
   useEffect(() => {
-    if (router.isReady && !clubName) partyHop();
-  }, []);
+    if (router.isReady && (!clubName || clubName.length < 1))
+      partyHop();
+  }, [router.isReady]);
 
   if (!clubName) return <div />;
 
