@@ -10,7 +10,8 @@ export function ClubName() {
 
   useEffect(() => {
     if (router.isReady) {
-      const nameFromUrl = router.query?.clubName?.replace(/-/g, ' ');
+      const slugFromUrl = router.query?.clubName as string;
+      const nameFromUrl = slugFromUrl?.replace(/-/g, ' ');
 
       const clubNameInit =
         typeof nameFromUrl === 'string' ? nameFromUrl : '';
@@ -22,7 +23,6 @@ export function ClubName() {
   const [clubName, clubNameSet] = useState('');
 
   function partyHop() {
-    console.log('party hop!');
     const name = generateName();
     const route = name.replace(/\s+/g, '-').toLowerCase();
 
@@ -144,51 +144,87 @@ export function generateName(): string {
 }
 
 const singles = [
-  'rash',
-  'itch',
+  'bunker',
+  'everywhere',
   'heaven',
   'hell',
-  'silo',
-  'bunker',
-  'warehouse',
-  `willy wonka's chocolate factory`,
   'input',
+  'itch',
+  'limbo',
+  'nowhere',
+  'ooze',
   'output',
+  'purgatory',
+  'rash',
+  'schimanski',
+  'seriously, why are there so many gay frankies?',
+  'silo',
+  'somewhere',
+  'warehouse',
+  'whatever',
+  'why are there so many gay frankies?',
+  `willy wonka's chocolate factory`,
 ];
 
 const variants = ['A', 'B'] as const;
 
 const prefixes = {
   A: [
+    'ambi',
     'base',
     'based',
     'else',
     'every',
+    'future',
+    'multi',
     'nowa',
     'octo',
+    'omni',
     'other',
     'para',
+    'paradigm',
     'poly',
     'private',
     'public ',
     'some',
+    'steam',
     'studio',
   ],
   B: [
+    'after ',
     'bad ',
+    'blue ',
+    'body ',
+    'bossa nova ',
+    'club ',
     'friends ',
+    'future ',
     'good ',
+    'green ',
+    'green room ',
     'heaven ',
-    'heaven or ',
     'heaven or ',
     'hell ',
     'house of ',
-    'house of ',
+    'knockdown ',
+    'moist',
     'mood ',
+    'more ',
+    'neutral ',
     'other ',
     'over ',
+    'past ',
+    'present ',
     'private ',
     'public ',
+    'quantum ',
+    'red ',
+    'secret project ',
+    'set ',
+    'steamy ',
+    'superior ',
+    'sweaty ',
+    'too many ',
   ],
 };
 
@@ -197,14 +233,17 @@ const suffixes = {
     'body',
     'center',
     'days',
+    'gender',
     'gon',
     'hall',
+    'life',
     'life',
     'place',
     'records',
     'space',
+    'there',
     'time',
-    'time',
+    'tool',
     'where',
     'world',
     'zone',
@@ -212,13 +251,32 @@ const suffixes = {
   B: [
     'and lovers',
     'center',
+    'civic club',
     'disco',
+    'gender',
+    'genders',
+    'hotbox',
+    'ingredients',
+    'itch',
+    'life',
+    'limbo',
     'lovers',
     'mirage',
+    'night club',
     'no',
+    'ooze',
+    'or las vegas',
+    'or less',
+    'paradigm',
+    'places',
+    'purgatory',
+    'rash',
     'records',
+    'robot',
     'room',
+    'sauna',
     'there',
+    'times',
     'yes',
   ],
 };
