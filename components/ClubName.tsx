@@ -49,7 +49,15 @@ export function ClubName() {
     >
       <Head>
         <title>nowadays, i spend my time elsewhere</title>
+
         <meta name="description" content={clubName} />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#14181c" />
+        <meta property="og:image" content="/preview.png" />
+        <meta property="og:image:secure_url" content="/preview.png" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1324" />
+        <meta property="og:image:height" content="794" />
 
         <link
           rel="apple-touch-icon"
@@ -74,8 +82,6 @@ export function ClubName() {
           href="/safari-pinned-tab.svg"
           color="#5bbad5"
         />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#14181c" />
 
         <style>
           {`@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');`}
